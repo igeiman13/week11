@@ -18,7 +18,7 @@ jobs:
       name: dev
     steps:
       - name: Deploy
-        run: echo I am deploying! 
+        run: Deploying to Dev!
     
   DeployStaging:
     name: Deploy to Staging 
@@ -28,7 +28,7 @@ jobs:
       name: staging
     steps:
       - name: Deploy
-        run: echo I am deploying! 
+        run: Deploying to staging!
             
   DeployProd:
     name: Deploy to Production 
@@ -38,4 +38,4 @@ jobs:
       name: prod
     steps:
       - name: Deploy
-        run: echo I am deploying! 
+        run: Deploying to prod!
