@@ -1,11 +1,11 @@
 name: CD
 
 on:
-  workflow_run:
-    workflows: ["tfsec"]
-    branches: [prod, staging]
-    types: 
-      - completed
+on:
+  push:
+    branches: [ prod ]
+  pull_request:
+    branches: [ prod ]
   #workflow_dispatch:
 
 jobs:
