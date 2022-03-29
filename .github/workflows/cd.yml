@@ -1,0 +1,41 @@
+name: CD
+
+on:
+  workflow_run:
+    workflows: ["tfsec"]
+    branches: [prod]
+    types: 
+      - completed
+  workflow_dispatch:
+
+jobs:
+
+  DeployDev:
+    name: Deploy to Dev 
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    environment: 
+      name: dev
+    steps:
+      - name: Deploy
+        run: echo I am deploying! 
+    
+  DeployStaging:
+    name: Deploy to Staging 
+    if: github.event.ref == 'refs/heads/prod'
+    runs-on: ubuntu-latest
+    environment: 
+      name: staging
+    steps:
+      - name: Deploy
+        run: echo I am deploying! 
+            
+  DeployProd:
+    name: Deploy to Production 
+    needs: [DeployStaging]
+    runs-on: ubuntu-latest
+    environment: 
+      name: prod
+    steps:
+      - name: Deploy
+        run: echo I am deploying! 
