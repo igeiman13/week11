@@ -1,7 +1,6 @@
 name: CD
 
 on:
-on:
   push:
     branches: [ prod ]
   pull_request:
